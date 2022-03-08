@@ -16,23 +16,14 @@
           v-on:mouseout="toggleShowPrices"
          :src="img" 
          :alt="name">
-        <h1 :class="changePercent > 0 ? 'green' : 'red'">
-            {{ title }}
-            <span v-if="changePercent > 0">👍</span>
-            <span v-else-if="changePercent < 0">👎</span>
-            <span v-else>🤞</span>
 
-            <!-- <span v-show="changePercent > 0">👍</span>
-            <span v-show="changePercent < 0">👎</span>
-            <span v-show="changePercent == 0">🤞</span> -->
-
-            <span v-on:click="toggleShowPrices">
-                {{showPrices ? '🙈' : '🐵'}}
-            </span>
-        </h1>
+         <coin-detail :title="title" :change-percent="changePercent">
+        </coin-detail> 
 
         <input type="number" v-model="value">
         <span>{{ convertedValue }}</span>
+
+        
 
         <ul v-show = 'showPrices'>
             <li 
