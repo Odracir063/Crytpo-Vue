@@ -11,31 +11,16 @@
 
     <div id="app" :style="{background: '#' + color}">
 
-        <img 
-          v-on:mouseover="toggleShowPrices"
-          v-on:mouseout="toggleShowPrices"
-         :src="img" 
-         :alt="name">
+        
+        
 
-         <coin-detail :title="title" :change-percent="changePercent">
-        </coin-detail> 
-
-        <input type="number" v-model="value">
-        <span>{{ convertedValue }}</span>
+    <coin-detail :coin = 'btc'></coin-detail>
 
         
 
-        <ul v-show = 'showPrices'>
-            <li 
-            :class="{ orange: p.value === price, red: p.value < price, green: p.value > price}"
-            v-for = "(p, i) in pricesWithDays" :key = "i">
-                {{i+1}} - {{p.day}} - {{ p.value }}
-            </li>
-        </ul>
-
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <script src="app.js"></script>
 </body>
 </html>
