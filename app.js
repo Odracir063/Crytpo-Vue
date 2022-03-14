@@ -13,7 +13,9 @@ Vue.component('CoinDetail', {
         toggleShowPrices () {
             this.showPrices = !this.showPrices;
 
-            
+            this.$emit('change-color',
+             this.showPrices ? 'FF96C8'
+             : '3D3D3D');
         }
     },
 
@@ -57,6 +59,12 @@ Vue.component('CoinDetail', {
             <input type="number" v-model="value">
             <span>{{ convertedValue }}</span>
 
+            <slot name="text">
+            </slot>
+
+            <slot name="link">
+            </slot>
+
             <ul v-show = 'showPrices'>
                 <li 
                 :class="{ orange: p.value === coin.price, red: p.value < coin.price, green: p.value > coin.price}"
@@ -85,7 +93,7 @@ new Vue({
                 name: 'Bitcoin',
                 symbol: 'BTC',
                 img: 'https://cryptologos.cc/logos/bitcoin-btc-logo.png',
-                changePercent: 12,
+                changePercent: -10,
                 price: 9000,
                 pricesWithDays: [
                     { day: 'Lunes', value: 8400 },
@@ -103,14 +111,15 @@ new Vue({
         }
     },
 
-    // methods: {
-    //     toggleShowPrices () {
+     methods: {
+        updateColor (color) {
 
-    //         this.showPrices = !this.showPrices;
-
-    //         this.color = this.color.split('').reverse().join('');
-    //     },
-    // },
+            this.color = color || this.color.
+            split('')
+            .reverse()
+            .join('');
+        },
+     },
 
 })
 

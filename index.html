@@ -14,7 +14,16 @@
         
         
 
-    <coin-detail :coin = 'btc'></coin-detail>
+    <coin-detail v-on:change-color="updateColor" :coin = 'btc'>
+        <template v-slot:text>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus, maiores cupiditate. Est tempora iure adipisci omnis voluptatem, nam maxime, assumenda deleniti expedita fugiat sed aliquam error ullam dolore voluptatibus numquam.</p>
+        </template>
+
+        <template v-slot:link>
+            <a href="#">Link!</a>
+        </template>
+
+    </coin-detail>
 
         
 
